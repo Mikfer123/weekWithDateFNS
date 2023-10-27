@@ -1,0 +1,76 @@
+
+body {
+  margin: 0;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.calendarContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  height: 90%;
+  gap: 5%;
+  background-color: white;
+}
+
+.calendarContainer__calendar {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  height: 70%;
+  background-color: black;
+}
+
+.calendarContainer__calendar__Month{
+  color: white;
+  width: 100%;
+  text-align: center;
+}
+
+.calendarContainer__calendar__days {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5%;
+  width: 100%;
+  color: white;
+
+}
+
+.calendarContainer__calendar__days__day {
+  display: inline;
+}
+
+.calendarContainer__calendar__dates {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5%;
+  width: 100%;
+  color: white;
+}
+
+.calendarContainer__calendar__dates__date {
+  display: inline;
+}
+
+.calendarContainer__buttonContainter {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 45%;
+  height: 10%;
+}
+
+.calendarContainer__buttonContainer__button {
+}
