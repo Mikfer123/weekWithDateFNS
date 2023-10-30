@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Agbalumo&display=swap');
 
 body {
   margin: 0;
@@ -10,67 +11,120 @@ body {
 }
 
 .calendarContainer {
+  font-family: "Agbalumo";
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 90%;
-  height: 90%;
+  width: 100%;
+  height: 100%;
   gap: 5%;
-  background-color: white;
+  background-color:hsla(0,100%,50%,1);
+  background-image:
+  radial-gradient(at 40% 20%, hsla(23,100%,74%,1) 0px, transparent 50%),
+  radial-gradient(at 80% 0%, hsla(184,100%,56%,1) 0px, transparent 50%),
+  radial-gradient(at 0% 50%, hsla(350,100%,93%,1) 0px, transparent 50%),
+  radial-gradient(at 80% 50%, hsla(335,100%,76%,1) 0px, transparent 50%),
+  radial-gradient(at 0% 100%, hsla(17,100%,77%,1) 0px, transparent 50%),
+  radial-gradient(at 80% 100%, hsla(237,100%,70%,1) 0px, transparent 50%),
+  radial-gradient(at 0% 0%, hsla(338,100%,76%,1) 0px, transparent 50%);
+}
+
+.calendarContainer__clockContainer{
+  /* display: flex;
+  align-items: center;
+  justify-content: center; */
+  color: white;
+  background-color: transparent;
+  border-radius: 25px;
+  border: 3px solid white;
+}
+
+.calendarContainer__clockContainer__clock {
+  padding: 0 10px 10px;
+  font-size: 2rem;
+  text-align: center;
+  margin: 0
 }
 
 .calendarContainer__calendar {
-  display: flex;
-  flex-direction: column;
+  /* display: flex;
   justify-content: center;
+  align-items: center; */
+  border-radius: 25px;
+  /* margin-top: 3%; */
+  width: 60%;
+  height: 50%;
+  background-color: white;
+  font-size: 1.5rem;
+}
+
+.calendarContainer__calendar__buttonContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   align-items: center;
-  width: 90%;
-  height: 70%;
-  background-color: black;
+  padding: 2% 3% 0;
+}
+
+.calendarContainer__calendar__buttonContainer__button {
+  color: black;
+  text-align: center;
+  font-size: 1.2rem;
+  z-index: 0;
+}
+
+.calendarContainer__calendar__buttonContainer__button:hover {
+  font-size: 1.5rem;
+  outline:none;
+  z-index: 100;
 }
 
 .calendarContainer__calendar__Month{
-  color: white;
-  width: 100%;
+  color: black;
+  /* width: 100%; */
+  font-size: 2rem;
+  text-align: center;
+  margin: 3% 0 6%
+}
+
+.calendarContainer__calendar__listContainer{
+  margin: 4%;
+  border: 5px black;
+  
+}
+
+.calendarContainer__calendar__listContainer__dayLIst {
+  /* display: table-row; */
+  /* justify-content: center; */
+  /* align-items: center; */
+  /* gap: 5%; */
+  /* width: 100%; */
+  display: flex;
+  list-style: none;
+  padding: 0;
+
+}
+
+.calendarContainer__calendar__listContainer__dayLIst__day {
+  flex: 1;
   text-align: center;
 }
 
-.calendarContainer__calendar__days {
+.calendarContainer__calendar__listContainer__dateList {
+  /* display: table-row; */
+  /* justify-content: center; */
+  /* align-items: center; */
+  /* gap: 5%; */
+  /* width: 100%; */
   display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 5%;
-  width: 100%;
-  color: white;
-
+  list-style: none;
+  color: black;
+  padding: 0;
 }
 
-.calendarContainer__calendar__days__day {
-  display: inline;
+.calendarContainer__calendar__listContainer__dateList__date {
+  flex: 1;
+  text-align: center;
 }
 
-.calendarContainer__calendar__dates {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 5%;
-  width: 100%;
-  color: white;
-}
-
-.calendarContainer__calendar__dates__date {
-  display: inline;
-}
-
-.calendarContainer__buttonContainter {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  width: 45%;
-  height: 10%;
-}
-
-.calendarContainer__buttonContainer__button {
-}
