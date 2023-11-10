@@ -6,9 +6,6 @@ import {
     lastDayOfMonth, 
     getDay, 
     getDate,
-    getWeekOfMonth,
-    nextWednesday
-
 } from 'date-fns';
 
 const clock = document.querySelector(".calendarContainer__clockContainer__clock")
@@ -18,12 +15,13 @@ const monthElement = document.querySelector(".calendarContainer__calendar__Month
 const prevButton = document.getElementById("Prev")
 const nextButton = document.getElementById("Next")
 
-// const date = new Date()
-const date = new Date(2023, 9,9)
+const date = new Date()
+// const date = new Date(2023, 11,9)
 const today = getDate(date)
 const month = format(date, "MMMM")
 const daysInMonth = getDaysInMonth(date)
-const firstDayOfMonth = getDay(startOfMonth(date)) +1
+let newDay: number = getDay(startOfMonth(date)) === 0 ? 7 : getDay(startOfMonth(date))
+const firstDayOfMonth = newDay -1
 const endOfMonth = getDay(lastDayOfMonth(date)) 
 const lastDayOfLastMonth = getDate(startOfMonth(date).setHours(-1))
 const weekLength = 7
@@ -41,7 +39,7 @@ monthElement.textContent = month
 const createWeeksArray = (monthStart: number, prevMonthEnd: number, monthLength: number, weekLength:number) => {
     const daysArray = []
     
-    for(let i = monthStart; i > 0; i--) {
+    for(let i = monthStart; i > 0 ; i--) {
         console.log("first loop: ",i, prevMonthEnd -i + 1) 
         daysArray.push(prevMonthEnd - i +1)
     }
@@ -50,10 +48,12 @@ const createWeeksArray = (monthStart: number, prevMonthEnd: number, monthLength:
         daysArray.push(i)
     }
 
-    for(let i = endOfMonth; i < 6; i++) {
-        daysArray.push(i - endOfMonth + 1)
+    if(endOfMonth !== 0) {
+        for(let i = endOfMonth; i < weekLength; i++) {
+            daysArray.push(i - endOfMonth + 1)
+        }
     }
-   
+    
     const chunks = [];
         
     for (let i = 0; i < daysArray.length; i += weekLength) {
