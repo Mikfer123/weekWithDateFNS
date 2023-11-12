@@ -9,8 +9,6 @@ import {
 } from 'date-fns';
 
 const clock = document.querySelector(".calendarContainer__clockContainer__clock")
-const days = Array.from(document.querySelectorAll(".calendarContainer__calendar__listContainer__dateList__date"))
-console.log("days element: ", days)
 const monthElement = document.querySelector(".calendarContainer__calendar__Month")
 const prevButton = document.getElementById("Prev")
 const nextButton = document.getElementById("Next")
@@ -20,7 +18,7 @@ const date = new Date()
 const today = getDate(date)
 const month = format(date, "MMMM")
 const daysInMonth = getDaysInMonth(date)
-let newDay: number = getDay(startOfMonth(date)) === 0 ? 7 : getDay(startOfMonth(date))
+const newDay = getDay(startOfMonth(date)) === 0 ? 7 : getDay(startOfMonth(date))
 const firstDayOfMonth = newDay -1
 const endOfMonth = getDay(lastDayOfMonth(date)) 
 const lastDayOfLastMonth = getDate(startOfMonth(date).setHours(-1))
@@ -32,9 +30,11 @@ console.log("first day of the month(day of week): ", firstDayOfMonth)
 console.log("last day of the month(day of week): ", endOfMonth)
 console.log("last date of the last month: ", lastDayOfLastMonth)
 
-setInterval(() => clock.textContent = format(new Date(), "HH:mm:ss"), 1)
+setInterval(() => {
+    if(clock) clock.textContent = format(new Date(), "HH:mm:ss"), 1
+})
 
-monthElement.textContent = month 
+if(monthElement)monthElement.textContent = month 
 
 const createWeeksArray = (monthStart: number, prevMonthEnd: number, monthLength: number, weekLength:number) => {
     const daysArray = []
@@ -64,68 +64,69 @@ const createWeeksArray = (monthStart: number, prevMonthEnd: number, monthLength:
     return chunks
 } 
 
-createWeeksArray(firstDayOfMonth, lastDayOfLastMonth, daysInMonth, weekLength)
+const arrayOfWeeks = createWeeksArray(firstDayOfMonth, lastDayOfLastMonth, daysInMonth, weekLength)
 
-const weeksArray = createWeeksArray(firstDayOfMonth, lastDayOfLastMonth, daysInMonth, weekLength)
+console.log("array of days: ", arrayOfWeeks)
 
-console.log("array of days: ", weeksArray)
-
-
-
-const nubmerOfWeeks = weeksArray.length
+const nubmerOfWeeks = arrayOfWeeks.length
 
 console.log("amount of weeks: ", nubmerOfWeeks)
 
-const week = weeksArray.findIndex((week) => week.includes(today))
+const currentWeek = arrayOfWeeks.findIndex((week) => week.includes(today))
 
-let currWeekIndex = week
+let displayedWeek = currentWeek
 
-console.log(currWeekIndex)
+console.log(displayedWeek)
 
-const appendDates = (array, index) => {
+const appendDates = (array: number[][], index: number) => {
     
     const dateList = document.querySelector(".calendarContainer__calendar__listContainer__dateList")
     const newDateList = document.createElement("ul")
     newDateList.classList.add("calendarContainer__calendar__listContainer__dateList")
 
     array[index].forEach((day) => {
-        const date = document.createElement("li")
-        date.classList.add("calendarContainer__calendar__listContainer__dateList__date")
+        const dateCell = document.createElement("li")
+        dateCell.classList.add("calendarContainer__calendar__listContainer__dateList__date")
         const node = document.createTextNode(`${day}`)
-        date.appendChild(node)
+        dateCell.appendChild(node)
+        const date = Number(dateCell.textContent)
     
-        if(currWeekIndex < week || currWeekIndex === week && date.textContent as number < today) {
-            date.style.color = "gray"
+        if(displayedWeek < currentWeek || displayedWeek === currentWeek && date < today) {
+            dateCell.style.color = "gray"
         }
     
-        if(date.textContent === `${today}`) {
-            date.style.color = "DarkGreen"
+        if(date === today) {
+            dateCell.style.color = "DarkGreen"
         }
     
-        if(date.textContent as number > today && date.textContent as number <= today + 7) {
-            date.style.color = "#7FFF00"
+        if(date > today && date <= today + 7) {
+            dateCell.style.color = "#7FFF00"
         }
     
-        newDateList.appendChild(date)
+        newDateList.appendChild(dateCell)
     })
 
-    dateList.replaceWith(newDateList)
+    if(dateList) dateList.replaceWith(newDateList)
 } 
 
-appendDates(weeksArray, currWeekIndex)
+appendDates(arrayOfWeeks, displayedWeek)
 
-nextButton.addEventListener("click", () => {
-    currWeekIndex = currWeekIndex < nubmerOfWeeks -1 ? currWeekIndex + 1 : currWeekIndex
-    console.log(currWeekIndex)
-    appendDates(weeksArray, currWeekIndex) 
-})
+if(nextButton) {
+    nextButton.addEventListener("click", () => {
+        displayedWeek = displayedWeek < nubmerOfWeeks -1 ? displayedWeek + 1 : displayedWeek
+        console.log(displayedWeek)
+        appendDates(arrayOfWeeks, displayedWeek) 
+    })
+}
 
 
-prevButton.addEventListener("click", () => {
-    currWeekIndex = currWeekIndex > 0 ? currWeekIndex -1 : currWeekIndex
-        console.log(currWeekIndex)
-    appendDates(weeksArray, currWeekIndex)
-})
+if(prevButton) {
+    prevButton.addEventListener("click", () => {
+        displayedWeek = displayedWeek > 0 ? displayedWeek -1 : displayedWeek
+        console.log(displayedWeek)
+        appendDates(arrayOfWeeks, displayedWeek)
+    })
+}
 
 
 
