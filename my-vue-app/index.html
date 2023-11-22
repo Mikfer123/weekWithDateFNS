@@ -4,24 +4,24 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="src/style.css">
-    <script type="module" src="/src/main.ts"></script>
+    <script type="module" src="/src/without-library.ts"></script>
     <title>Calendar</title>
   </head>
   <body>
     <div class="calendarContainer">
       <div class="calendarContainer__clockContainer">
-        <p class="calendarContainer__clockContainer__clock">12:00:00</p>
+        <p class="calendarContainer__clockContainer__clock"></p>
       </div>
       <div class="calendarContainer__calendar">
         <div class="calendarContainer__calendar__buttonsContainer">
           <div id="Prev" class="calendarContainer__calendar__buttonsContainer__buttonContainer">
-            <a  class="calendarContainer__calendar__buttonsContainer__buttonContainer__button">&#60; Prev Week</a>
+            <a  class="calendarContainer__calendar__buttonsContainer__buttonContainer__button">Prev Week</a>
           </div>
           <div id="Next" class="calendarContainer__calendar__buttonsContainer__buttonContainer">
-            <a class="calendarContainer__calendar__buttonsContainer__buttonContainer__button">Next Week &#62;</a>
+            <a class="calendarContainer__calendar__buttonsContainer__buttonContainer__button">Next Week</a>
           </div> 
         </div>
-        <h1 class="calendarContainer__calendar__Month">Month</h1>
+        <h1 class="calendarContainer__calendar__Month"></h1>
         <div class="calendarContainer__calendar__listContainer">
           <ul class="calendarContainer__calendar__listContainer__dayLIst">
             <li class="calendarContainer__calendar__listContainer__dayLIst__day">Mon</li>
@@ -31,23 +31,6 @@
             <li class="calendarContainer__calendar__listContainer__dayLIst__day">Fri</li>
             <li class="calendarContainer__calendar__listContainer__dayLIst__day">Sat</li>
             <li class="calendarContainer__calendar__listContainer__dayLIst__day">Sun</li>
-            <!-- <li class="calendarContainer__calendar__listContainer__dayLIst__day">Sun</li>
-            <li class="calendarContainer__calendar__listContainer__dayLIst__day">Mon</li>
-            <li class="calendarContainer__calendar__listContainer__dayLIst__day">Tue</li>
-            <li class="calendarContainer__calendar__listContainer__dayLIst__day">Wed</li>
-            <li class="calendarContainer__calendar__listContainer__dayLIst__day">Thu</li>
-            <li class="calendarContainer__calendar__listContainer__dayLIst__day">Fri</li>
-            <li class="calendarContainer__calendar__listContainer__dayLIst__day">Sat</li>
-  -->
-          </ul>
-          <ul class="calendarContainer__calendar__listContainer__dateList">
-            <!-- <li class="calendarContainer__calendar__listContainer__dateList__date"></li>
-            <li class="calendarContainer__calendar__listContainer__dateList__date"></li>
-            <li class="calendarContainer__calendar__listContainer__dateList__date"></li>
-            <li class="calendarContainer__calendar__listContainer__dateList__date"></li>
-            <li class="calendarContainer__calendar__listContainer__dateList__date"></li>
-            <li class="calendarContainer__calendar__listContainer__dateList__date"></li>
-            <li class="calendarContainer__calendar__listContainer__dateList__date"></li> -->
           </ul>
         </div>
       </div>

@@ -1,10 +1,9 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Agbalumo&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Agbalumo&family=Lobster&display=swap');
 
-  @import url('https://fonts.googleapis.com/css2?family=Agbalumo&family=Lobster&display=swap');
+
 
 body {
   margin: 0;
-  background-color: black;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -13,7 +12,8 @@ body {
 }
 
 .calendarContainer {
-  font-family: "Lobster";
+  font-family: "Lobster", sans-serif;
+  color: black;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -21,7 +21,7 @@ body {
   width: 100%;
   height: 100%;
   gap: 5%;
-  /* background-color:hsla(0,100%,50%,1);
+  background-color:hsla(0,100%,50%,1);
   background-image:
   radial-gradient(at 40% 20%, hsla(23,100%,74%,1) 0px, transparent 50%),
   radial-gradient(at 80% 0%, hsla(184,100%,56%,1) 0px, transparent 50%),
@@ -29,12 +29,11 @@ body {
   radial-gradient(at 80% 50%, hsla(335,100%,76%,1) 0px, transparent 50%),
   radial-gradient(at 0% 100%, hsla(17,100%,77%,1) 0px, transparent 50%),
   radial-gradient(at 80% 100%, hsla(237,100%,70%,1) 0px, transparent 50%),
-  radial-gradient(at 0% 0%, hsla(338,100%,76%,1) 0px, transparent 50%); */
-  background-color: mediumslateblue;
+  radial-gradient(at 0% 0%, hsla(338,100%,76%,1) 0px, transparent 50%);
+  /* background-color: mediumslateblue; */
 }
 
 .calendarContainer__clockContainer{
-  
   color: white;
   background-color: transparent;
   border-radius: 25px;
@@ -43,7 +42,6 @@ body {
 }
 
 .calendarContainer__clockContainer__clock {
-  /* padding: 0 15px 10px; */
   font-size: 2rem;
   text-align: center;
   margin: 0;
@@ -67,8 +65,7 @@ body {
 .calendarContainer__calendar__buttonsContainer__buttonContainer {
   border-radius: 25px;
   text-align: center;
-  padding: 0 10px 6px;
-  color: black;
+  padding: 0 1.5%;
   transition: 0.05s;
 }
 
@@ -85,13 +82,12 @@ body {
 
 }
 
-.calendarContainer__calendar__buttonsContainer__buttonContainer:active{
+.calendarContainer__calendar__buttonsContainer__buttonContainer:active {
   background-color: black;
   color: white;
 }
 
-.calendarContainer__calendar__Month{
-  color: black;
+.calendarContainer__calendar__Month {
   font-size: 2rem;
   text-align: center;
   margin: 3% 0 0
@@ -100,26 +96,22 @@ body {
 .calendarContainer__calendar__listContainer{
   margin: 6% 3%;
   border: 5px black;
-  
 }
 
 .calendarContainer__calendar__listContainer__dayLIst {
   display: flex;
   list-style: none;
   padding: 0;
-
 }
 
 .calendarContainer__calendar__listContainer__dayLIst__day {
   flex: 1;
   text-align: center;
- 
 }
 
 .calendarContainer__calendar__listContainer__dateList {
   display: flex;
   list-style: none;
-  color: black;
   padding: 0;
 }
 
@@ -128,3 +120,14 @@ body {
   text-align: center;
 }
 
+.calendarContainer__calendar__listContainer__dateList__date--lightGreen {
+  color: #82e711;
+}
+
+.calendarContainer__calendar__listContainer__dateList__date--darkGreen {
+  color: #1C7B11;
+}
+
+.calendarContainer__calendar__listContainer__dateList__date--gray {
+  color: #BDBDBD;
+}
