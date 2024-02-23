@@ -30,7 +30,6 @@ body {
   radial-gradient(at 0% 100%, hsla(17,100%,77%,1) 0px, transparent 50%),
   radial-gradient(at 80% 100%, hsla(237,100%,70%,1) 0px, transparent 50%),
   radial-gradient(at 0% 0%, hsla(338,100%,76%,1) 0px, transparent 50%);
-  /* background-color: mediumslateblue; */
 }
 
 .calendarContainer__clockContainer{
